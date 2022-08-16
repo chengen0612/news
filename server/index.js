@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const axios = require("axios");
 
 require("dotenv").config();
@@ -44,6 +45,9 @@ app.use((_req, res, next) => {
 
   next();
 });
+
+// Serve builds
+app.use(express.static(path.resolve(__dirname, "../client/dist")));
 
 app.get("/ping", (_req, res) => {
   res.send("pong");
