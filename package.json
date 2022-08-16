@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "dev": "pm2 start . --watch",
+    "kill": "pm2 delete all"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1"
+  }
+}

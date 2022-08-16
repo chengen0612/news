@@ -1,0 +1,8 @@
+# Dependencies
+node_modules
+
+# Development
+.env
+
+# Cache
+.tmp
