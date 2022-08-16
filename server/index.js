@@ -40,7 +40,7 @@ app.use((req, _res, next) => {
 
 // CORS
 app.use((_req, res, next) => {
-  res.header("Access-Control-Allows-Origin", "*");
+  res.header("Access-Control-Allow-Origin", "*");
 
   next();
 });
@@ -57,7 +57,7 @@ app.get("/stories/:title", (req, res) => {
   const { title } = req.params;
   const regex = new RegExp(title, "gi");
 
-  res.send(STORIES.filter((STORY) => regex.test(STORY.title)));
+  res.json(STORIES.filter((STORY) => regex.test(STORY.title)));
 });
 
 app.get("/topstories", async (_req, res, next) => {
@@ -68,7 +68,7 @@ app.get("/topstories", async (_req, res, next) => {
     const requests = topStories.slice(0, LIMIT).map(fetchStoryDetails);
     const storiesWithDetails = await Promise.all(requests);
 
-    res.send(storiesWithDetails);
+    res.json(storiesWithDetails);
   } catch (error) {
     next(new Error("Unsuccessful request to hacker-news: " + error.message));
   }
