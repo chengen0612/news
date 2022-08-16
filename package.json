@@ -2,8 +2,10 @@
   "name": "news",
   "version": "1.0.0",
   "scripts": {
-    "dev": "concurrently \"cd server && yarn dev\" \"cd client && yarn dev\"",
-    "preview": "concurrently \"cd client && yarn build\" \"cd server && yarn dev\""
+    "build": "cd client && yarn build",
+    "serve": "cd server && yarn dev",
+    "dev": "concurrently \"cd client && yarn dev\" \"yarn serve\"",
+    "preview": "yarn build && yarn serve"
   },
   "author": "evans <chengen0612@gmail.com>",
   "license": "MIT"
