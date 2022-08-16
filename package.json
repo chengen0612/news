@@ -1,11 +1,9 @@
 {
+  "name": "news",
+  "version": "1.0.0",
   "scripts": {
-    "dev": "pm2 start . --watch",
-    "kill": "pm2 delete all"
+    "dev": "concurrently \"cd server && yarn dev\" \"cd client && yarn dev\""
   },
-  "dependencies": {
-    "axios": "^0.27.2",
-    "dotenv": "^16.0.1",
-    "express": "^4.18.1"
-  }
+  "author": "evans <chengen0612@gmail.com>",
+  "license": "MIT"
 }
